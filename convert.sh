@@ -1,4 +1,4 @@
-# This script relies on ffmpeg, flac/metaflac.  If you don't have those installed this script will fail.
+# This script relies on ffmpeg, flac/metaflac.  If you don't have those installed this script will fail. It also assumes that you have an alias set up in Bash for the script called "convert".
 #!/bin/bash
 read -p "Enter Track Number: " track
 read -p "Enter Artist: " artist
