@@ -1,4 +1,7 @@
-# This script relies on ffmpeg, flac/metaflac.  If you don't have those installed this script will fail. It also assumes that you have an alias set up in Bash for the script called "convert".
+# This script relies on ffmpeg, flac, and lame.
+# If you don't have those installed this script will fail.
+# It also assumes that you have an alias set up in your shell for the script called "convert".
+
 #!/bin/bash
 read -p "Enter Track Number: " track
 read -p "Enter Artist: " artist
@@ -20,7 +23,3 @@ BPM=$bpm" > "$track - $artist - $title".txt\
 && ffmpeg -y -i "$track - $artist - $title".wav -i "$track - $artist - $title".txt -map_metadata 1 -id3v2_version 3 -write_id3v1 1  -acodec flac "$track - $artist - $title".flac\
 && metaflac --import-picture-from=folder.jpg "$track - $artist - $title".flac\
 && ffmpeg -y -i "$track - $artist - $title".wav -i "$track - $artist - $title".txt -i folder.jpg -map_metadata 1 -map 0 -map 2 -metadata:s:v title="Album cover" -metadata:s:v comment="Cover (Front)" -id3v2_version 3 -write_id3v1 1 -acodec mp3 -b:a 320k "$track - $artist - $title".mp3\
-&& read -p "Is this the last track? (yes/no)" end
-if [ $end = "no" ]; then
-    bash convert
-fi
