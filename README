@@ -1,0 +1,18 @@
+This script relies on ffmpeg, flac, and lame.  If you don't have those installed this script will fail.  This is handy for converting WAV files to FLAC and 320k MP3 and embedding proper metadata and album art.  This script assumes that your 16-bit WAV files are named according to the following convention: "Two-digit Track Number - Artist Name - Track Title (Remix).wav".  Any variation on that naming convention will cause the script to fail.  The script also assumes that you have the album art for the track in the same directory and that it is titled "folder.jpg".  Any deviation from that will cause the script to fail.
+An example directory would look like this:
+
+Album directory
+        |
+        ---    01 - Artist - Track.wav
+        ---    02 - Artist - Track.wav
+        ---    03 - Artist - Track (Remix).wav
+        ---    04 - Artist - Track.wav
+        ---    folder.jpg
+
+Usage:
+Put the script somewhere in your $PATH so that your user can execute it (~/bin) is where I keep all of mine.  Make sure the script is executable (chmod +x).  Navigate to the directory where your files to be converted are stored and execute the script.  Follow the shell prompts.  Note that the information input into the shell at this point *must* be **identical** to the track name, otherwise this script will fail.
+If you only want to convert your WAV files to FLAC, simply comment out the last line.  If you want to only convert to MP3, comment out the second and third-last lines.
+
+This script is particularly useful for artists and labels wanting to package releases to the very exacting standards set by Alexander Synaptic for Ektoplazm.  This will generate files that conform 100% to those standards.
+
+Tested on Linux and Mac OS X.
