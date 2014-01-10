@@ -13,6 +13,6 @@ Usage:
 Put the script somewhere in your $PATH so that your user can execute it (~/bin) is where I keep all of mine.  Make sure the script is executable (chmod +x).  Navigate to the directory where your files to be converted are stored and execute the script.  Follow the shell prompts.  Note that the information input into the shell at this point *must* be **identical** to the track name, otherwise this script will fail.
 If you only want to convert your WAV files to FLAC, simply comment out the last line.  If you want to only convert to MP3, comment out the second and third-last lines.
 
-This script is particularly useful for artists and labels wanting to package releases to the very exacting standards set by Alexander Synaptic for (Ektoplazm)[http://ektoplazm.com].  This will generate files that conform 100% to those standards.
+This script is particularly useful for artists and labels wanting to package releases to the very exacting standards set by Alexander Synaptic for Ektoplazm (http://ektoplazm.com).  This will generate files that conform 100% to those standards.
 
 Tested on Linux and Mac OS X.
