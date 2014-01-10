@@ -22,12 +22,12 @@ ALBUM=$album
 TITLE=$title
 GENRE=$genre
 DATE=$date
-BPM=$bpm" > "$track - $artist - $title".txt\
+BPM=$bpm" > "$track - $artist - $title".mdta\
 
 echo "Metadata accepted, converting files..."
 # Call FFMPEG to convert the WAV file to FLAC. Comment this to disable this function.
-ffmpeg -y -i "$track - $artist - $title".wav -i "$track - $artist - $title".txt -map_metadata 1 -id3v2_version 3 -write_id3v1 1  -acodec flac "$track - $artist - $title".flac
+ffmpeg -y -i "$track - $artist - $title".wav -i "$track - $artist - $title".mdta -map_metadata 1 -id3v2_version 3 -write_id3v1 1  -acodec flac "$track - $artist - $title".flac
 # Tell FLAC where to find the album art and embed it to the newly created flac file.  If you've commented the previous line, you must also comment this one, otherwise the script will fail.
 metaflac --import-picture-from=folder.jpg "$track - $artist - $title".flac
 # Call FFMPEG to convert the WAV file to 320k MP3 and embed metadata and artwork.  Comment this to disable this function.
-ffmpeg -y -i "$track - $artist - $title".wav -i "$track - $artist - $title".txt -i folder.jpg -map_metadata 1 -map 0 -map 2 -metadata:s:v title="Album cover" -metadata:s:v comment="Cover (Front)" -id3v2_version 3 -write_id3v1 1 -acodec mp3 -b:a 320k "$track - $artist - $title".mp3
+ffmpeg -y -i "$track - $artist - $title".wav -i "$track - $artist - $title".mdta -i folder.jpg -map_metadata 1 -map 0 -map 2 -metadata:s:v title="Album cover" -metadata:s:v comment="Cover (Front)" -id3v2_version 3 -write_id3v1 1 -acodec mp3 -b:a 320k "$track - $artist - $title".mp3
